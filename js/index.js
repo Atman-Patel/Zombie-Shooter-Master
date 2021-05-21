@@ -203,6 +203,7 @@ const ctx = canvas.getContext("2d");
 let killcount = 0;
 let zombieRate = 170;
 let waveCount = 0;
+let mouse
 
 resize(canvas)
 
@@ -240,14 +241,16 @@ gunElementSelector.forEach((gun)=>{
 gunSelector.forEach((lst)=>{
   let tab = document.querySelector(`#tab-${lst[0]}`);
   document.addEventListener('keydown',(e)=>{
+      console.log('moved')
+
       if(e.key == lst[0] && lst[1].statusH2 !== 'locked'){
           tab.checked = true;
           currentGun = lst[1];
           clearInterval(timer)
       }
       if (!pause) {
-          let mouse = pointer(canvas, e)
-	  player.rotate(mouse)
+          console.log(mouse)
+	      player.rotate(mouse)
       }
   });
   tab.addEventListener('click',(e)=>{
@@ -393,7 +396,7 @@ document.body.addEventListener("click", () => {
 
 document.body.addEventListener("mousemove", (e) => {
   if (!pause) {
-    let mouse = pointer(canvas, e)
+    mouse = pointer(canvas, e)
     player.rotate(mouse)
   }
 })
