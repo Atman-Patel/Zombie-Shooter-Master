@@ -373,10 +373,10 @@ document.addEventListener('keyup', (e) => {
     bullets.forEach((bullet) => {
       bullet.speed = bulletSpeed
     })
+  }else if(e.key == 'p' || e.key == 'w' || e.key == 'a' || e.key == 's' || e.key == 'd' && !pause){
+    let mouse = pointer(canvas, e)
+    player.rotate(mouse)
   }
-})
-document.addEventListener('keydown', (e) => {
-
 })
 
 document.body.addEventListener("click", () => {
@@ -514,7 +514,7 @@ const update = (frame) => {
       zombie.health += (0.5 * waveCount)
       zombieHealth = zombie.health
       zombieHealthBar.push(new HealthBar(healthBarX, healthBarY, 75, 10, zombie, zombies[zombies.length - 1].health, "red"))
-      if ((zombieCount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1)) {
+      if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1)) {
         zombie.radius *= 1.5
         zombie.speed *= 1.5
         zombie.damage += 20
