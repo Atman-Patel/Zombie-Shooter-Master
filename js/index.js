@@ -365,21 +365,19 @@ const frame = function () {
 }
 
 document.addEventListener('keyup', (e) => {
-  if (e.key == 'p' && !pause) {
-    player.speed = 0
-    pause = true
-    bullets.forEach((bullet) => {
-      bullet.speed = 0
-    })
-  } else if (e.key == 'p' || e.key == 'w' || e.key == 'a' || e.key == 's' || e.key == 'd' || e.key == 'Escape' && pause) {
-    pause = false
-    player.speed = playerSpeed
-    bullets.forEach((bullet) => {
-      bullet.speed = bulletSpeed
-    })
-}
-  }
-})
+    if (e.key == 'p' && !pause) {
+      player.speed = 0
+      pause = true
+      bullets.forEach((bullet) => {
+        bullet.speed = 0})
+    } else if (e.key == 'p' || e.key == 'w' || e.key == 'a' || e.key == 's' || e.key == 'd' || e.key == 'Escape' && pause) {
+      pause = false
+      player.speed = playerSpeed
+      bullets.forEach((bullet) => {
+        bullet.speed = bulletSpeed
+      })
+    }
+  })
 
 document.body.addEventListener("click", () => {
   if (!pause && currentGun.autoFire == false) {
