@@ -509,7 +509,7 @@ const update = (frame) => {
       zombies.push(new Zombie(player))
       let zombie = zombies[zombies.length - 1]
       zombie.speed += (0.15 * waveCount)
-      zombie.damage -= (0.07 * waveCount)
+      zombie.damage += (0.01 * waveCount)
       zombie.radius += (1 * waveCount)
       zombie.health += (0.5 * waveCount)
       zombieHealth = zombie.health
