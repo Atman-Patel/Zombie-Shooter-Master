@@ -373,11 +373,14 @@ document.addEventListener('keyup', (e) => {
     bullets.forEach((bullet) => {
       bullet.speed = bulletSpeed
     })
-  }else if(e.key == 'p' || e.key == 'w' || e.key == 'a' || e.key == 's' || e.key == 'd' && !pause){
-    let mouse = pointer(canvas, e)
-    player.rotate(mouse)
   }
 })
+setInterval(()=>{
+if (!pause) {
+    let mouse = pointer(canvas, e)
+    player.rotate(mouse)
+}
+},100)
 
 document.body.addEventListener("click", () => {
   if (!pause && currentGun.autoFire == false) {
