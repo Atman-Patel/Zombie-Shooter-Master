@@ -310,7 +310,7 @@ canvas.addEventListener('mousedown',(e)=>{
     if(clicked && currentGun.autoFire){
     if(currentGun.gun !== 'Sniper' && currentGun.gun !== 'Shotgun'){
     bullets.push(
-      new Bullet(player.vector.x, player.vector.y, player.angle + ((1/currentGun.accuracy) + Math.random() * -(1/currentGun.accuracy)),((currentGun.damage)/100)*zombieHealth,currentGun.speed,currentGun.bulletRadius)
+      new Bullet(player.vector.x, player.vector.y, player.angle + (-(1/currentGun.accuracy) + Math.random() * (2/currentGun.accuracy)),((currentGun.damage)/100)*zombieHealth,currentGun.speed,currentGun.bulletRadius)
     )
     if (player.health > 0) {
       numBullet += 1
@@ -383,7 +383,7 @@ document.addEventListener('keyup', (e) => {
 document.body.addEventListener("click", () => {
   if (!pause && currentGun.autoFire == false) {
     bullets.push(
-      new Bullet(player.vector.x, player.vector.y, player.angle + ((1/currentGun.accuracy) + Math.random() * -(1/currentGun.accuracy)),((currentGun.damage)/100)*zombieHealth,currentGun.speed,currentGun.bulletRadius)
+      new Bullet(player.vector.x, player.vector.y, player.angle + (-(1/currentGun.accuracy) + Math.random() * (2/currentGun.accuracy)),((currentGun.damage)/100)*zombieHealth,currentGun.speed,currentGun.bulletRadius)
     )
 
     if (player.health > 0) {
