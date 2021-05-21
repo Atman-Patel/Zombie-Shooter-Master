@@ -245,6 +245,10 @@ gunSelector.forEach((lst)=>{
           currentGun = lst[1];
           clearInterval(timer)
       }
+      if (!pause) {
+          let mouse = pointer(canvas, e)
+	  player.rotate(mouse)
+      }
   });
   tab.addEventListener('click',(e)=>{
     if(lst[1].statusH2 == 'unlocked'){
@@ -373,15 +377,9 @@ document.addEventListener('keyup', (e) => {
     bullets.forEach((bullet) => {
       bullet.speed = bulletSpeed
     })
-  if (!pause) {
-    let mouse = pointer(canvas, e)
-    player.rotate(mouse)
 }
   }
 })
-setInterval(()=>{
-
-},100)
 
 document.body.addEventListener("click", () => {
   if (!pause && currentGun.autoFire == false) {
