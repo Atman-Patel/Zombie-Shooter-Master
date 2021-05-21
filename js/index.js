@@ -241,16 +241,10 @@ gunElementSelector.forEach((gun)=>{
 gunSelector.forEach((lst)=>{
   let tab = document.querySelector(`#tab-${lst[0]}`);
   document.addEventListener('keydown',(e)=>{
-      console.log('moved')
-
       if(e.key == lst[0] && lst[1].statusH2 !== 'locked'){
           tab.checked = true;
           currentGun = lst[1];
           clearInterval(timer)
-      }
-      if (!pause) {
-          console.log(mouse)
-	      player.rotate(mouse)
       }
   });
   tab.addEventListener('click',(e)=>{
@@ -302,7 +296,11 @@ setInterval(()=>{
     gun.element.statusH2.textContent = `${gun.gun} (${gun.statusH2})`;
   })
 },1000);
-
+setInterval(()=>{
+if (!pause) {
+   player.rotate(mouse)
+}
+},10)
 //Auto click
 canvas.addEventListener('mousedown',(e)=>{
   if(e.button == 2 ||e.button == 3){clearInterval(timer)}
