@@ -373,13 +373,14 @@ document.addEventListener('keyup', (e) => {
     bullets.forEach((bullet) => {
       bullet.speed = bulletSpeed
     })
-  }
-})
-setInterval(()=>{
-if (!pause) {
+  if (!pause) {
     let mouse = pointer(canvas, e)
     player.rotate(mouse)
 }
+  }
+})
+setInterval(()=>{
+
 },100)
 
 document.body.addEventListener("click", () => {
