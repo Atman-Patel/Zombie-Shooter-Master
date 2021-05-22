@@ -296,11 +296,6 @@ setInterval(()=>{
     gun.element.statusH2.textContent = `${gun.gun} (${gun.statusH2})`;
   })
 },1000);
-setInterval(()=>{
-if (!pause) {
-   player.rotate(mouse)
-}
-},10)
 //Auto click
 canvas.addEventListener('mousedown',(e)=>{
   if(e.button == 2 ||e.button == 3){clearInterval(timer)}
@@ -547,6 +542,7 @@ const update = (frame) => {
     })
     if (!pause) {
       playerSpeed = player.speed
+      player.rotate(mouse)
     }
 
   }
