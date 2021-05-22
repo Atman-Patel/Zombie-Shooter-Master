@@ -19,7 +19,7 @@ class Player {
   }
 
   move() {
-    if (key("w") || key("W") || key("ArrowUp")) {
+    if (key("w") && this.vector.y - this.speed - this.radius > 0 || key("W") || key("ArrowUp")) {
       this.vector.y -= this.speed
     }
     if (key("s") && this.vector.y + this.speed + this.radius < height || key("S") || key("ArrowDown")) {
