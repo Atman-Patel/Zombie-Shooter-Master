@@ -433,10 +433,8 @@ let health = 100;
 let waveFreq = 20
 let numBullet = 0
 let numBulletHit = 0
-let gunAcc = 0.02
 const zombieInAWave = 10
 let pause = false
-let zombieBoss ={index:0,num:0}
 
 const healthBarWidth = 150;
 const healthBarHeight = 20;
@@ -611,10 +609,7 @@ const update = (frame) => {
         healthBar.updateHealthBar(player.health)
       }
     }
-    console.log(zombieBoss.index)
-    if(zombies[zombieBoss.index].boss && zombies[zombieBoss.index].health <=0){
-    zombieBoss.num = 0
-    }
+    
     
     if (frame % zombieRate == 0 && !pause) {
       zombies.push(new Zombie(player))
@@ -626,8 +621,7 @@ const update = (frame) => {
       zombieHealth = zombie.health
       zombie.boss = false
       zombieHealthBar.push(new HealthBar(healthBarX, healthBarY, 75, 10, zombie, zombies[zombies.length - 1].health, "red"))
-      if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1) && zombieBoss.num == 0) {
-        zombieBoss.index = zombies.length
+      if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1) && !zombies[zombies.length-1].boss) {
         zombie.boss = true
         zombie.radius *= 1.5
         zombie.speed *= 1.5
@@ -636,11 +630,9 @@ const update = (frame) => {
         zombie.health *= 2;
         zombieHealthBar[zombieHealthBar.length - 1].maxHealth = zombie.health
         zombie.x = width
-        zombieBoss.num = 1
       }
       zombieCount += 1
     }
-
     if (prevHealth !== health) {
       healthBar.updateHealthBar(health)
     }
