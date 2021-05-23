@@ -623,6 +623,7 @@ const update = (frame) => {
       zombie.radius += (1 * waveCount)
       zombie.health += (0.5 * waveCount)
       zombieHealth = zombie.health
+      zombie.boss = false
       zombieHealthBar.push(new HealthBar(healthBarX, healthBarY, 75, 10, zombie, zombies[zombies.length - 1].health, "red"))
       if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1) && zombieBoss.num == 0) {
         zombieBoss.index = zombies.length
