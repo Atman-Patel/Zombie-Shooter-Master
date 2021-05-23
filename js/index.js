@@ -198,9 +198,9 @@ const Shotgun = {
 };
 const NuclearBomb = {
   gun: 'Nuclear-Bomb',
-  unlockInWave: 1,
+  unlockInWave: 20,
   num: '7',
-  statusH2: 'unlocked',
+  statusH2: 'locked',
   damage: 200,
   bulletRadius: 5,
   speed: 8,
@@ -233,7 +233,7 @@ const NuclearBomb = {
 const SentryGun = {
   gun: 'Sentry',
   num:'8',
-  statusH2: 'unlocked',
+  statusH2: 'locked',
   damage:10,
   waves: 3,
   bulletRadius: 3,
@@ -299,7 +299,7 @@ document.addEventListener('keydown', (e) => {
 
 resize(canvas)
 
-const SentryPlayer = new Player()
+const sentries = []
 const player = new Player()
 const bullets = []
 const zombies = []
@@ -427,7 +427,6 @@ window.addEventListener('mouseup', (e) => {
   clearInterval(timer);
   clicked = false;
 });
-
 //healthbar
 let prevHealth = 100
 let health = 100;
@@ -437,6 +436,7 @@ let numBulletHit = 0
 let gunAcc = 0.02
 const zombieInAWave = 10
 let pause = false
+let zombieBoss ={index:'',num:0}
 
 const healthBarWidth = 150;
 const healthBarHeight = 20;
@@ -611,7 +611,10 @@ const update = (frame) => {
         healthBar.updateHealthBar(player.health)
       }
     }
-
+    if(zombies[zombieBoss.index].boss && zombies[zombieBoss.index].health <=0){
+    zombieBoss.num = 0
+    }
+    
     if (frame % zombieRate == 0 && !pause) {
       zombies.push(new Zombie(player))
       let zombie = zombies[zombies.length - 1]
@@ -621,7 +624,9 @@ const update = (frame) => {
       zombie.health += (0.5 * waveCount)
       zombieHealth = zombie.health
       zombieHealthBar.push(new HealthBar(healthBarX, healthBarY, 75, 10, zombie, zombies[zombies.length - 1].health, "red"))
-      if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1)) {
+      if ((killcount - ((waveCount - 1) * zombieInAWave)) == (zombieInAWave - 1) && zombieBoss.num == 0) {
+        zombieBoss.index = zombies.length
+        zombie.boss = true
         zombie.radius *= 1.5
         zombie.speed *= 1.5
         zombie.damage += 20
@@ -629,6 +634,7 @@ const update = (frame) => {
         zombie.health *= 2;
         zombieHealthBar[zombieHealthBar.length - 1].maxHealth = zombie.health
         zombie.x = width
+        zombieBoss.num = 1
       }
       zombieCount += 1
     }
@@ -636,7 +642,6 @@ const update = (frame) => {
     if (prevHealth !== health) {
       healthBar.updateHealthBar(health)
     }
-
     healthBar.x = player.vector.x - (healthBar.maxWidth / 2)
     healthBar.y = player.vector.y - player.radius - 30
     let index = 0
