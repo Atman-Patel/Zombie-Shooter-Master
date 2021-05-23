@@ -25,7 +25,9 @@ class HealthBar {
             this.health = val;
             this.w = (this.health / this.maxHealth) * this.maxWidth;
         } if (this.target.name == 'player') {
-            if (this.health <= 80 && this.health > 60) {
+            if (this.health <= 100 && this.health >= 80) {
+                this.color = '#00C22C'
+            }else if (this.health <= 80 && this.health > 60) {
                 this.color = '#DCE439'
             } else if (this.health <= 60 && this.health > 40) {
                 this.color = '#FFDC00'
