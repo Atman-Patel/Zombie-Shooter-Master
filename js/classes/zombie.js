@@ -3,6 +3,7 @@ import { random } from "../libs/utils.js"
 
 
 class Zombie {
+  boss=false
   speed = 3
   radius = 20
   health = 5
