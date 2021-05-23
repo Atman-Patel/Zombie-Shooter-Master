@@ -436,7 +436,7 @@ let numBulletHit = 0
 let gunAcc = 0.02
 const zombieInAWave = 10
 let pause = false
-let zombieBoss ={index:'',num:0}
+let zombieBoss ={index:0,num:0}
 
 const healthBarWidth = 150;
 const healthBarHeight = 20;
@@ -611,6 +611,7 @@ const update = (frame) => {
         healthBar.updateHealthBar(player.health)
       }
     }
+    console.log(zombieBoss.index)
     if(zombies[zombieBoss.index].boss && zombies[zombieBoss.index].health <=0){
     zombieBoss.num = 0
     }
