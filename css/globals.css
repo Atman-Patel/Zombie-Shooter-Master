@@ -1,0 +1,100 @@
+html, body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url("pixelated_ground.jpeg");
+    box-sizing: border-box;
+}
+canvas {
+  width: 99vw;
+  height: 93vh;
+    /* border: 2px solid black; */
+    cursor: url(crosshair.cur) 0 0, default;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+  .wrapper {
+    /* max-width: 90rem; */
+    width: 100%;
+    margin: 0 auto;
+  }
+  .tabs {
+    position: relative;
+    background: #1abc9c;
+    height: 14.75rem;
+  }
+  .tabs::before,
+  .tabs::after {
+    content: "";
+    display: table;
+  }
+  .tabs::after {
+    clear: both;
+  }
+  .tab {
+    float: left;
+  }
+  .tab-switch {
+    display: none;
+  }
+  .tab-label {
+    position: relative;
+    display: block;
+    width:fit-content;
+    padding-right:10;
+    line-height: 2.75em;
+    height: 3em;
+    padding: 0 1.618em;
+    border-right: 1px solid #1abc9c;
+    background: #1abc9c;
+    color: #fff;
+    cursor: pointer;
+    top: 0;
+    transition: all 0.25s;
+  }
+  .tab-label:hover {
+    top: -0.25rem;
+    transition: top 0.25s;
+  }
+  .tab-content {
+    height: 20rem;
+    width:100%;
+    position: absolute;
+    z-index: 1;
+    top: 2.75em;
+    left: 0;
+    padding: 1.618rem;
+    background: #fff;
+    color: #2c3e50;
+    opacity: 0;
+    transition: all 0.35s;
+  }
+  .tab-switch:checked + .tab-label {
+    background: #fff;
+    color: #2c3e50;
+    border-bottom: 0;
+    border-right: 0.125rem solid #fff;
+    transition: all 0.35s;
+    z-index: 1;
+    top: -0.0625rem;
+  }
+  .tab-switch:checked + label + .tab-content {
+    z-index: 2;
+    opacity: 1;
+    transition: all 0.35s;
+  }
+  .contentH2{
+    margin-bottom: 0px;
+  }
+  .pistol{
+    margin-bottom: 0px;
+  }
+  .MachineGunLabel{
+    width:14rem;
+  }
+  .locked{
+    background:red;
+  }
