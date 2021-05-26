@@ -2,7 +2,7 @@ html, body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: url("https://i.pinimg.com/474x/95/93/81/959381cf5a4293367ad66aabba5143e1--star-wars-planets-star-wars-love.jpg");
+    background-image: url("https://i.pinimg.com/474x/95/93/81/959381cf5a4293367ad66aabba5143e1--star-wars-planets-star-wars-love.jpg");
     box-sizing: border-box;
 }
 canvas {
