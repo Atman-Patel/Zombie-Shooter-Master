@@ -3,6 +3,7 @@ html, body {
     align-items: center;
     flex-direction: column;
     box-sizing: border-box;
+    background-image: url("pixelated_ground.jpeg");
 }
 canvas {
   width: 99vw;
