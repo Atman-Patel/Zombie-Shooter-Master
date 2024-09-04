@@ -42,7 +42,7 @@ const Pistol = {
 };
 const Smg = {
   gun: 'Smg',
-  unlockInWave: 3,
+  unlockInWave: 1,
   num: '2',
   statusH2: 'locked',
   damage: 12,
@@ -74,7 +74,7 @@ const Smg = {
 const Ar = {
   gun: 'Ar',
   num: '3',
-  unlockInWave: 5,
+  unlockInWave: 1,
   statusH2: 'locked',
   damage: 30,
   bulletRadius: 4,
@@ -104,7 +104,7 @@ const Ar = {
 };
 const Sniper = {
   gun: 'Sniper',
-  unlockInWave: 8,
+  unlockInWave: 1,
   num: '4',
   statusH2: 'locked',
   damage: 200,
@@ -135,7 +135,7 @@ const Sniper = {
 };
 const MachineGun = {
   gun: 'MachineGun',
-  unlockInWave: 13,
+  unlockInWave: 1,
   num: '5',
   statusH2: 'locked',
   damage: 7.5,
@@ -198,7 +198,7 @@ const Shotgun = {
 };
 const NuclearBomb = {
   gun: 'Nuclear-Bomb',
-  unlockInWave: 20,
+  unlockInWave: 1,
   num: '7',
   statusH2: 'locked',
   damage: 200,
